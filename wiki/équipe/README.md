@@ -2,7 +2,8 @@
 
 > Or Contributors/People
 
-| <a href="http://fvcproductions.com" target="_blank">**FVCproductions**</a> | <a href="http://fvcproductions.com" target="_blank">**FVCproductions**</a> | <a href="http://fvcproductions.com" target="_blank">**FVCproductions**</a> |
+| <a href="https://forge.univ-lyon1.fr/p1807434" target="_blank">**Sbaai Abdelaziz**</a> | <a href="https://forge.univ-lyon1.fr/p1507907" target="_blank">**RAYBAUD--SERDA JONATHAN**</a> | <a href="https://forge.univ-lyon1.fr/p1610152 target="_blank">**ALI MROIVILI DJALOUD**</a> |
 | :---: |:---:| :---:|
-| [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com)    | [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com) | [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com)  |
-| <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> | <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> | <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> |
+| - abdelaziz.sbaai@etu.univ-lyon1.fr | - mail de Jonathan | - mail de Djaloud |
+
+
