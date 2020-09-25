@@ -15,4 +15,10 @@
 |vincent.pham@etu.univ-lyon1.fr|victor.boghossian@etu.univ-lyon1.fr |melisya.tutoglu@etu.univ-lyon1.fr |
 |num de vincent|num de victor|num de melisya|
 
+> Our rocket chat group
 
+- https://chat-info.univ-lyon1.fr/group/m1if10-gp17
+
+> Our jitsi room
+
+- https://jitsi-info.univ-lyon1.fr/mif10-gp17
