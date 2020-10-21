@@ -82,6 +82,29 @@
               <path>/myapp</path>
           </configuration>
         </plugin>
+       <plugin> <!-- https://maven.apache.org/plugins/maven-checkstyle-plugin/usage.html -->
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-checkstyle-plugin</artifactId>
+         <version>3.1.1</version>
+         <executions>
+           <execution>
+             <id>validate</id>
+             <phase>test</phase>
+             <configuration>
+               <configLocation>src/main/config/checkstyle.xml</configLocation>
+               <encoding>UTF-8</encoding>
+               <consoleOutput>true</consoleOutput>
+	     <!-- mvn test fails for any warning or error -->
+               <failsOnError>true</failsOnError>
+	     <violationSeverity>warning</violationSeverity>
+             <linkXRef>false</linkXRef>
+           </configuration>
+           <goals>
+             <goal>check</goal>
+           </goals>
+         </execution>
+       </executions>
+     </plugin>
       </plugins>
     </pluginManagement>
   </build>
