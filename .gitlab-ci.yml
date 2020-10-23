@@ -1,0 +1,15 @@
+junit:
+  image: maven:3.6.1-jdk-11
+  before_script:
+    - . server/setup-mvn-proxy.sh
+  script:
+    - cd server && mvn test --batch-mode
+
+deploy:
+  image: maven:3.6.1-jdk-11
+  before_script:
+    - . server/setup-mvn-proxy.sh
+    - chmod 400 $CI_SSH_KEY
+  script:
+    - cd server && mvn compile && mvn package 
+    - scp -o StrictHostKeyChecking=no -i $CI_SSH_KEY /builds/p1509899/projetweb/server/target/server.war gitlabci@192.168.75.218:/opt/tomcat/webapps/v1.war
