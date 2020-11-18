@@ -17,10 +17,7 @@
         <div class="container">
             <form class="add" method="post" action="Init">
                 <input type="hidden" name="contenu" value="addEvent">
-                <h1>Add an event</h1>
-                <fieldset>
-                         <input placeholder="ID" type="text" name="idEvent" autofocus>
-                </fieldset>
+                <h2>Add an event with associated hashtags</h2>
 
                 <fieldset>
                         <input placeholder="Name" type="text" name="nameEvent" autofocus>
@@ -33,12 +30,19 @@
                 <fieldset>
                         <input placeholder="Description" type="textarea" name="descriptionEvent" autofocus>
                 </fieldset>
-                <button 
-                    type="submit" name="submitEvent" id="submitEvent" >
-                    +
-                </button>
+
+                <fieldset>
+                    <input placeholder="Hashtags" type="textarea" name="hashtags" autofocus>
+                </fieldset>
+
+                <fieldset>
+                    <button 
+                        type="submit" name="submitEvent" id="submitEvent" >
+                        +
+                    </button>
+                </fieldset>
+
             </form>
         </div>
-
     </body>
 </html>

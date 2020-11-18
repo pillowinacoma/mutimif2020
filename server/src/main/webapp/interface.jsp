@@ -14,9 +14,11 @@
     <link rel="stylesheet" type="text/css" href="static/interface_style.css">
 </head>
 <body>
-    <main>
-     <jsp:include page="menu.jsp"/>
+    <jsp:include page="menu.jsp"/>
+    <div class = container>
+        <h2 id="titre"> Current Events </h2>
+     
 
-    </main>
+    </div>
     </body>
 </html>

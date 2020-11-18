@@ -18,7 +18,6 @@
     <ul id="menu">
         <li><a href="interface.jsp">Home</a></li>
         <li><a href="addEvent.jsp">Add event</a></li>
-        <li><a href="addHashtag.jsp">Add hashtag</a></li>
     </ul>
     </div>
     </body>
