@@ -58,6 +58,8 @@ public class ConnectInsta  extends Thread {
      */
     public void getResponse() {
         ArrayList<Post> listPost = InstaParser.parser(response);
-        ConnectPostgreSQL.addPosts(listPost);
+        for (int i = 0; i < listPost.size(); i++) {
+            //appel au dao pour sauvegarder chaque Post
+        }
     }
 }
