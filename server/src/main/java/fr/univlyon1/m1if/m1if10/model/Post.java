@@ -12,7 +12,7 @@ public class Post {
 
     /**
      * Constructor.
-     * @param id String if of the post.
+     * @param id String id of the post.
      * @param url String url of the picture.
      * @param name String name of the creator of the post.
      * @param description String Description of the post.
