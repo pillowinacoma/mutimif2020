@@ -35,8 +35,8 @@ public final class InstaParser {
                     new Post(
                         objTmp.getString("id"),
                         objTmp.getString("display_url"),
-                        "name",
-                        "descr",
+                        objTmp.getJSONObject("owner").getString("id"),
+                        objTmp.getString("accessibility_caption"),
                         objTmp.getJSONObject("edge_liked_by").getInt("count")
                     )
                 );
