@@ -13,7 +13,7 @@ import fr.univlyon1.m1if.m1if10.model.Post;
  */
 public class ConnectInsta  extends Thread {
     private String hashtag = "";
-    private String urlbasique = "https://www.instagram.com/explore/tags/";
+    private String urlbasique = "http://89.86.78.77:5600/";
 
     /**
      * @param hashtag String of hashtag chose
