@@ -67,6 +67,14 @@ public class Hashtag {
         this.name = name;
     }
 
+    /**
+     * add Event.
+     * @param e
+     */
+    public void addEvent(final Event e) {
+        events.add(e);
+    }
+
     public Collection<Event> getEvents() {
         return events;
     }
