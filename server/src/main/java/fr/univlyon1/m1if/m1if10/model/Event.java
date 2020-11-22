@@ -1,15 +1,46 @@
 package fr.univlyon1.m1if.m1if10.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.sql.Date;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import java.util.Collection;
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 
 /**
  * Class Event.
  */
+@Entity(name = "Event")
 public class Event {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "date")
     private Date date;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "descr")
     private String description;
+
+    @ManyToMany
+    @JoinTable(name = "HashtagEvent",
+                joinColumns = @JoinColumn(name = "idevent"),
+                inverseJoinColumns = @JoinColumn(name = "idhashtag"))
+    private Collection<Hashtag> hashtags;
+
+    /**
+     * Default constructor.
+     */
+    public Event() {
+    }
 
     /**
      * Constructor.
@@ -41,20 +72,24 @@ public class Event {
         return description;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
-    public void setDate(Date date) {
+    public void setDate(final Date date) {
         this.date = date;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
-    public void setId(int id) {
+    public void setId(final int id) {
         this.id = id;
+    }
+
+    public Collection<Hashtag> getHashtags() {
+        return hashtags;
     }
 
     @Override
