@@ -1,18 +1,45 @@
 package fr.univlyon1.m1if.m1if10.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Collection;
+
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+
 /**
  * Class Post.
  */
+@Entity(name = "Post")
 public class Post {
+
+    @Id
+    @Column(name = "id")
     private String id;
+
+    @Column(name = "imageurl")
     private String url;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "descr")
     private String description;
+
+    @Column(name = "nblike")
     private int nbLike;
+
+    @ManyToMany
+    @JoinTable(name = "PostHashtag",
+                joinColumns = @JoinColumn(name = "idpost"),
+                inverseJoinColumns = @JoinColumn(name = "idhashtag"))
+    private Collection<Hashtag> hashtags;
 
     /**
      * Constructor.
-     * @param id String if of the post.
+     * @param id String id of the post.
      * @param url String url of the picture.
      * @param name String name of the creator of the post.
      * @param description String Description of the post.
@@ -25,6 +52,13 @@ public class Post {
         this.name = name;
         this.description = description;
         this.nbLike = nbLike;
+    }
+
+    /**
+     * Default Constructor.
+     */
+    public Post() {
+
     }
 
     public String getId() {
@@ -45,6 +79,18 @@ public class Post {
 
     public int getNbLike() {
         return nbLike;
+    }
+
+    /**
+     * add hashtag.
+     * @param h
+     */
+    public void addHashtag(final Hashtag h) {
+        hashtags.add(h);
+    }
+
+    public Collection<Hashtag> getHashtags() {
+        return hashtags;
     }
 
     @Override
