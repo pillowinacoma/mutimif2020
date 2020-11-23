@@ -1,6 +1,5 @@
 package fr.univlyon1.m1if.m1if10;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;

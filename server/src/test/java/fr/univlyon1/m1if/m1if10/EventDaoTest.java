@@ -1,7 +1,8 @@
 package fr.univlyon1.m1if.m1if10;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.sql.Date;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -28,13 +29,16 @@ class EventDaoTest {
     void getOrCreateTest() {
         // Given
         Event e;
+        Date d = new Date(2020/23/11);
 
         // When
-        e = eDAO.getOrCreate("Nuit de l'info");
+        e = eDAO.getOrCreate("Nuit de l'info", d, "Description");
         em.getTransaction().commit();
 
         // Then
         assertEquals("Nuit de l'info", e.getName());
+        assertEquals(d, e.getDate());
+        assertEquals("Description", e.getDescription());
 
         em.close();
     }
@@ -43,11 +47,12 @@ class EventDaoTest {
     void getEventByNameTest() {
         // Given
         Event e1, e2, e3;
+        Date d = new Date(2020/23/11);
 
         // When
-        e1 = eDAO.getOrCreate("Presentation du M2");
-        e2 = eDAO.getOrCreate("Gala");
-        e3 = eDAO.getOrCreate("Remise des diplomes");
+        e1 = eDAO.getOrCreate("Presentation du M2", d, "Description");
+        e2 = eDAO.getOrCreate("Gala", d, "Description");
+        e3 = eDAO.getOrCreate("Remise des diplomes", d, "Description");
         em.getTransaction().commit();
 
         // Then
