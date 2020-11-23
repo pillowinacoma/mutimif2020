@@ -5,9 +5,9 @@
             <!--<property name="hibernate.connection.driver_class" value="org.h2.Driver" />-->
             <!--<property name="hibernate.connection.url" value="jdbc:h2:tcp://localhost/test" />-->
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/postgres" />
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost/mif10" />
             <property name="hibernate.connection.user" value="postgres" />
-            <property name="hibernate.connection.password" value="1234" />
+            <property name="hibernate.connection.password" value="postgres123" />
             <!-- Utiliser le fichier microblog.sql pour créer les tables -->
             <property name="hibernate.hbm2ddl.auto" value="update" />
         </properties>
