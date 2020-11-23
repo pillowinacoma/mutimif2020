@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 
 import java.sql.Date;
+import java.util.List;
 
 /**
  * Class EventDAO.
@@ -56,5 +57,8 @@ public class EventDAO {
             manager.persist(event);
         }
         return event;
+    }
+    public List<Event> getAllEvent() {
+        return manager.createQuery("select e from Event e", Event.class).getResultList();
     }
 }

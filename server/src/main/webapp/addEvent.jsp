@@ -15,7 +15,7 @@
     <body>
         <jsp:include page="menu.jsp"/>
         <div class="container">
-            <form class="add" method="post" action="Init">
+            <form class="add" method="post" action="admin">
                 <input type="hidden" name="contenu" value="addEvent">
                 <h2>Add an event with associated hashtags</h2>
 
