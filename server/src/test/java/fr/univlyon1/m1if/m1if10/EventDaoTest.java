@@ -29,7 +29,7 @@ class EventDaoTest {
     void getOrCreateTest() {
         // Given
         Event e;
-        Date d = new Date(2020/23/11);
+        Date d = new Date(2020, 23, 11);
 
         // When
         e = eDAO.getOrCreate("Nuit de l'info", d, "Description");
@@ -47,7 +47,7 @@ class EventDaoTest {
     void getEventByNameTest() {
         // Given
         Event e1, e2, e3;
-        Date d = new Date(2020/23/11);
+        Date d = new Date(2020, 23, 11);
 
         // When
         e1 = eDAO.getOrCreate("Presentation du M2", d, "Description");
