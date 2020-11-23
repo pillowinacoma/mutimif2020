@@ -45,7 +45,7 @@ public class InterfaceController extends HttpServlet {
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Action non spécifiée.");
                 return;
             }
-            if (request.getParameter("action").equals("addEvent")) {
+            if (request.getParameter("action").equals("+")) {
                 manager.getTransaction().begin();
                 //récupération des éléments du formulaire:
                 String nameEvent = request.getParameter("nameEvent");
@@ -73,6 +73,7 @@ public class InterfaceController extends HttpServlet {
                     }
                 }
                 manager.getTransaction().commit();
+                manager.close();
                 processRequest(request, response);
             }
         } catch (ParseException ex) {
