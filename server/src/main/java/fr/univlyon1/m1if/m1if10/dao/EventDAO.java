@@ -5,6 +5,8 @@ import fr.univlyon1.m1if.m1if10.model.Event;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 
+import java.sql.Date;
+
 /**
  * Class EventDAO.
  */
@@ -40,13 +42,17 @@ public class EventDAO {
     /**
      * Function getOrCreate.
      * @param name
+     * @param date
+     * @param description
      * @return
      */
-    public Event getOrCreate(final String name) {
+    public Event getOrCreate(final String name, final Date date, final String description) {
         Event event = this.getEventByName(name);
         if (event == null) {
             event = new Event();
             event.setName(name);
+            event.setDate(date);
+            event.setDescription(description);
             manager.persist(event);
         }
         return event;
