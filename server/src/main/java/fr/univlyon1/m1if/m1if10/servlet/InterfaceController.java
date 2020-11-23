@@ -41,45 +41,51 @@ public class InterfaceController extends HttpServlet {
     throws ServletException, IOException {
         try {
             HttpSession session = request.getSession();
-            manager.getTransaction().begin();
-            //récupération des éléments du formulaire:
-            String nameEvent = request.getParameter("nameEvent");
-            //Formater la date
-            String dateEvent = request.getParameter("dateEvent");
-            SimpleDateFormat dateform = new SimpleDateFormat("yyyy-MM-dd");
-            Date date = dateform.parse(dateEvent);
-            java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-            String descriptionEvent = request.getParameter("descriptionEvent");
-            //création des mes modèles DAO
-            Event event = this.eventDao.getOrCreate(nameEvent,
-                    sqlDate, descriptionEvent);
-            System.out.println("SALUT = " + event.toString());
-          //récupération des hashtags dans la table tabString
-            if (request.getParameter("hashtags") != null) {
-                String sHashtags = request.getParameter("hashtags");
-                String[] tabString = sHashtags.split(";");
-
-                ArrayList<ConnectInsta> tests = new ArrayList<ConnectInsta>();
-                for (String tabString1 : tabString) {
-                    Hashtag hash = hashtagDao.getOrCreate(tabString1);
-                    System.out.println("HHHASH = " + hash);
-                    hash.addEvent(event);
-                    tests.add(new ConnectInsta(tabString1));
-                    tests.get(tests.size() - 1).start();
-                }
+            if (request.getParameter("action") == null) {
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Action non spécifiée.");
+                return;
             }
-            manager.getTransaction().commit();
-            processRequest(request, response);
+            if (request.getParameter("action").equals("addEvent")) {
+                manager.getTransaction().begin();
+                //récupération des éléments du formulaire:
+                String nameEvent = request.getParameter("nameEvent");
+                //Formater la date
+                String dateEvent = request.getParameter("dateEvent");
+                SimpleDateFormat dateform = new SimpleDateFormat("yyyy-MM-dd");
+                Date date = dateform.parse(dateEvent);
+                java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+                String descriptionEvent = request.getParameter("descriptionEvent");
+                //création des mes modèles DAO
+                Event event = this.eventDao.getOrCreate(nameEvent,
+                        sqlDate, descriptionEvent);
+                System.out.println("POIRE = " + event.toString());
+              //récupération des hashtags dans la table tabString
+                if (request.getParameter("hashtags") != null) {
+                    String sHashtags = request.getParameter("hashtags");
+                    String[] tabString = sHashtags.split(";");
+                    ArrayList<ConnectInsta> tests = new ArrayList<ConnectInsta>();
+                    for (String tabString1 : tabString) {
+                        Hashtag hash = hashtagDao.getOrCreate(tabString1);
+                        System.out.println("HHHASH = " + hash);
+                        hash.addEvent(event);
+                        tests.add(new ConnectInsta(tabString1));
+                        tests.get(tests.size() - 1).start();
+                    }
+                }
+                manager.getTransaction().commit();
+                processRequest(request, response);
+            }
         } catch (ParseException ex) {
             Logger.getLogger(InterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        processRequest(request, response);
     }
 
     protected void processRequest(final HttpServletRequest request,
                                     final HttpServletResponse response)
                                     throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("interface.jsp");
-        dispatcher.include(request, response);
+        dispatcher.forward(request, response);
     }
     @Override
     public void doGet(final HttpServletRequest request, final HttpServletResponse response)

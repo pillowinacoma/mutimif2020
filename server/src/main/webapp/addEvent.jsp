@@ -24,7 +24,7 @@
                 </fieldset>
 
                 <fieldset>
-                    <input placeholder="Date" type="datetime-local" name="dateEvent">
+                    <input placeholder="Date" type="date" name="dateEvent">
                 </fieldset>
 
                 <fieldset>
@@ -36,10 +36,8 @@
                 </fieldset>
 
                 <fieldset>
-                    <button 
-                        type="submit" name="submitEvent" id="submitEvent" >
-                        +
-                    </button>
+                    <input
+                        type="submit" name="action" value="+" id="submitEvent" >
                 </fieldset>
 
             </form>
