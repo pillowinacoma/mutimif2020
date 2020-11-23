@@ -6,7 +6,8 @@ import javax.persistence.Id;
 import java.sql.Date;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.ManyToMany;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -34,7 +35,7 @@ public class Event {
     @JoinTable(name = "HashtagEvent",
                 joinColumns = @JoinColumn(name = "idevent"),
                 inverseJoinColumns = @JoinColumn(name = "idhashtag"))
-    private Collection<Hashtag> hashtags;
+    private List<Hashtag> hashtags = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -88,7 +89,7 @@ public class Event {
         this.id = id;
     }
 
-    public Collection<Hashtag> getHashtags() {
+    public List<Hashtag> getHashtags() {
         return hashtags;
     }
 

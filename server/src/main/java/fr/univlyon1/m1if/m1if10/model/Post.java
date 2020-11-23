@@ -3,7 +3,8 @@ package fr.univlyon1.m1if.m1if10.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.ManyToMany;
 import javax.persistence.JoinColumn;
@@ -35,7 +36,7 @@ public class Post {
     @JoinTable(name = "PostHashtag",
                 joinColumns = @JoinColumn(name = "idpost"),
                 inverseJoinColumns = @JoinColumn(name = "idhashtag"))
-    private Collection<Hashtag> hashtags;
+    private List<Hashtag> hashtags = new ArrayList<>();
 
     /**
      * Constructor.
@@ -89,7 +90,7 @@ public class Post {
         hashtags.add(h);
     }
 
-    public Collection<Hashtag> getHashtags() {
+    public List<Hashtag> getHashtags() {
         return hashtags;
     }
 

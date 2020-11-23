@@ -15,7 +15,7 @@
     <body>
         <jsp:include page="menu.jsp"/>
         <div class="container">
-            <form class="add" method="post" action="Init">
+            <form class="add" method="post" action="admin">
                 <input type="hidden" name="contenu" value="addEvent">
                 <h2>Add an event with associated hashtags</h2>
 
@@ -24,7 +24,7 @@
                 </fieldset>
 
                 <fieldset>
-                    <input placeholder="Date" type="datetime-local" name="dateEvent">
+                    <input placeholder="Date" type="date" name="dateEvent">
                 </fieldset>
 
                 <fieldset>
@@ -36,10 +36,8 @@
                 </fieldset>
 
                 <fieldset>
-                    <button 
-                        type="submit" name="submitEvent" id="submitEvent" >
-                        +
-                    </button>
+                    <input
+                        type="submit" name="action" value="+" id="submitEvent" >
                 </fieldset>
 
             </form>

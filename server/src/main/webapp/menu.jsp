@@ -16,7 +16,7 @@
     <body>
     <div class="block_menu">
     <ul id="menu">
-        <li><a href="interface.jsp">Home</a></li>
+        <li><a href="admin">Home</a></li>
         <li><a href="addEvent.jsp">Add event</a></li>
     </ul>
     </div>
