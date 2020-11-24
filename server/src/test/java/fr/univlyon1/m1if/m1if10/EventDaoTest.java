@@ -20,7 +20,7 @@ class EventDaoTest {
 
     @BeforeEach
     public void setUp() {
-        em = Persistence.createEntityManagerFactory("public").createEntityManager();
+        em = Persistence.createEntityManagerFactory("publictest").createEntityManager();
         em.getTransaction().begin();
         eDAO = new EventDAO(em);
     }
