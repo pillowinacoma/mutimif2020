@@ -58,35 +58,16 @@
 						</section>
 					</section>
 					<c:forEach items="${event.hashtags}" var="hashtag">
-						<section>
+					<section>								
+						<c:forEach items="${hashtag.posts}" var="posty" varStatus="status">
 							<section>
 								<a href="https://www.instagram.com/explore/tags/<c:out value="${hashtag.name}"/>/">#<c:out value="${hashtag.name}"/></a>
-								<div class="r-stack">
-								<c:forEach items="${hashtag.posts}" var="posty" varStatus="status">
-									<c:choose>
-										<c:when test="${status.index == 0}">
-									<div class="fragment fade-out" data-fragment-index="0">
-										</c:when>
-										<c:when test="${status.index == 1}">
-									<div class="fragment current-visible" data-fragment-index="0">
-										</c:when>
-										<c:when test="${status.index == fn:length(hashtag.posts) - 1}">
-									<div class="fragment ">
-										</c:when>
-										<c:otherwise>
-									<div class="fragment current-visible">
-										</c:otherwise>
-									</c:choose>
-										<div class="post">
-											<p class="username">@<c:out value="${posty.name}"/> : </p>
-											<p class="caption"><c:out value="${posty.description}"/></p>
-											<img src="<c:out value="${posty.url}"/>">
-										</div>							
-									</div>
-								</c:forEach>
-								</div>	
+								<p class="username">@<c:out value="${posty.name}"/> : </p>
+								<p class="caption"><c:out value="${posty.description}"/></p>
+								<img class="r-stretch" src="<c:out value="${posty.url}"/>">
 							</section>
-						</section>	
+						</c:forEach>
+					</section>	
 					</c:forEach>
 				</c:forEach>
 
