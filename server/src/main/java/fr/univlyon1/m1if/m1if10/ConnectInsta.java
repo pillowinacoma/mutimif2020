@@ -36,9 +36,8 @@ public class ConnectInsta  extends Thread {
         PostDAO pdao = new PostDAO(manager);
         //Appel au dao pour sauvegarder du Hashtag Post
         //Permet que si ConnectHttp bloque le Hashtag n'est pas crée
-        ArrayList<Post> listPost = InstaParser.parser(response);
+        ArrayList<Post> listPost = (ArrayList) InstaParser.parser(response);
         for (int i = 0; i < listPost.size(); i++) {
-            System.out.println(listPost.get(i).toString());
             Hashtag tmpHash = hdao.getHashtagByName(hashtag);
             Post tpmPost = pdao.getOrCreate(
                 listPost.get(i).getId(),
