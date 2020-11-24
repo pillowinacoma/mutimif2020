@@ -12,7 +12,7 @@
 <%@ page import="java.util.List" %>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xml:lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Présence UCBL</title>

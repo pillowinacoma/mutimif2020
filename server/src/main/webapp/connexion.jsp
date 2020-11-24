@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xml:lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Affichage des events</title>
