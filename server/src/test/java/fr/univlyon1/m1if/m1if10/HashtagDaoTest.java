@@ -19,7 +19,7 @@ class HashtagDaoTest {
     
     @BeforeEach
     void setUp() {
-        em = Persistence.createEntityManagerFactory("public").createEntityManager();
+        em = Persistence.createEntityManagerFactory("publictest").createEntityManager();
         em.getTransaction().begin();
         htDAO = new HashtagDAO(em);
     }

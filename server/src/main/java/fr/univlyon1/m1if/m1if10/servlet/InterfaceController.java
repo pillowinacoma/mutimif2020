@@ -70,12 +70,11 @@ public class InterfaceController extends HttpServlet {
                     }
                 }
                 manager.getTransaction().commit();
-                processRequest(request, response);
             }
         } catch (ParseException ex) {
             Logger.getLogger(InterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        processRequest(request, response);
+        doGet(request, response);
     }
 
     protected void processRequest(final HttpServletRequest request,
@@ -87,9 +86,20 @@ public class InterfaceController extends HttpServlet {
     @Override
     public void doGet(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
+        manager.getTransaction().begin();
         this.listEvent = eventDao.getAllEvent();
         request.setAttribute("nosEvents", listEvent);
+        for (int i = 0; i < listEvent.size(); i++) {
+            System.out.println("---------EVENT------------- :" + listEvent.get(i).toString());
+        }
+        manager.getTransaction().commit();
         processRequest(request, response);
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        manager.close();
     }
 
 }

@@ -20,7 +20,7 @@ class PostDaoTest {
     
     @BeforeEach
     void setUp() {
-        em = Persistence.createEntityManagerFactory("public").createEntityManager();
+        em = Persistence.createEntityManagerFactory("publictest").createEntityManager();
         em.getTransaction().begin();
         pDAO = new PostDAO(em);
     }
