@@ -25,7 +25,6 @@ Pour la gestion des dépendances et de la compilation, le projet utilise `Maven`
 - `jstl`
 - `json`
 - `hibernate`
-- `h2`
 - `logback-classic`
 - `jaxb-api`
 
@@ -80,11 +79,6 @@ Le projet est accessible sur une machine de démonstration à l'adresse http://1
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-entitymanager</artifactId>
     <version>5.2.2.Final</version>
-  </dependency>
-  <dependency>
-    <groupId>com.h2database</groupId>
-    <artifactId>h2</artifactId>
-    <version>1.4.196</version>
   </dependency>
   <dependency>
     <groupId>ch.qos.logback</groupId>
