@@ -30,11 +30,9 @@ public class EventDAO {
      */
     public Event getEventByName(final String name) {
         try {
-            Event event =
-                    (Event) this.manager.createQuery("SELECT e FROM Event e WHERE e.name=:name")
+            return (Event) this.manager.createQuery("SELECT e FROM Event e WHERE e.name=:name")
             .setParameter("name", name)
             .getSingleResult();
-            return event;
         } catch (NoResultException e) {
             return null;
         }

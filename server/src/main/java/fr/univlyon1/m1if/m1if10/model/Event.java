@@ -95,7 +95,6 @@ public class Event {
 
     @Override
     public String toString() {
-        String returnString = name;
-        return returnString;
+        return name;
     }
 }

@@ -1,6 +1,7 @@
 package fr.univlyon1.m1if.m1if10.model;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -20,8 +21,8 @@ public final class InstaParser {
      * @param message String.
      * @return ArrayList<Post>
      */
-    public static ArrayList<Post> parser(final String message) {
-        ArrayList<Post> returnArray = new ArrayList<Post>();
+    public static List<Post> parser(final String message) {
+        ArrayList<Post> returnArray = new ArrayList<>();
         JSONObject messageJSON = new JSONObject(message);
         JSONArray postList = (((messageJSON
                                 .getJSONObject("graphql"))

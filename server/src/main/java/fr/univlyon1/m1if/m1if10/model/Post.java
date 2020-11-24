@@ -96,7 +96,6 @@ public class Post {
 
     @Override
     public String toString() {
-        String returnString = id + " | " + url + " | " + name;
-        return returnString;
+        return (String) (id + " | " + url + " | " + name);
     }
 }
