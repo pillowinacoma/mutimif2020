@@ -58,15 +58,13 @@ public class InterfaceController extends HttpServlet {
                 //création des mes modèles DAO
                 Event event = this.eventDao.getOrCreate(nameEvent,
                         sqlDate, descriptionEvent);
-                System.out.println("POIRE = " + event.toString());
               //récupération des hashtags dans la table tabString
                 if (request.getParameter("hashtags") != null) {
                     String sHashtags = request.getParameter("hashtags");
                     String[] tabString = sHashtags.split(";");
-                    ArrayList<ConnectInsta> tests = new ArrayList<ConnectInsta>();
+                    ArrayList<ConnectInsta> tests = new ArrayList<>();
                     for (String tabString1 : tabString) {
                         Hashtag hash = hashtagDao.getOrCreate(tabString1);
-                        System.out.println("HHHASH = " + hash);
                         hash.addEvent(event);
                         tests.add(new ConnectInsta(tabString1));
                         tests.get(tests.size() - 1).start();
@@ -91,7 +89,6 @@ public class InterfaceController extends HttpServlet {
     @Override
     public void doGet(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
-                 //récuperation dans une list pour affichage dans la jsp
         List<Event> listEvent = eventDao.getAllEvent();
         request.setAttribute("nosEvents", listEvent);
         processRequest(request, response);
