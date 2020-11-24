@@ -24,8 +24,10 @@
         <h2 id="titre"> Current Events </h2>
 
         <table>
+            <caption></caption>
             <tr>
-                <th>name of event: </th>
+                <th scope="col">Name of event: </th>
+                <th scope="col">Date: </th>
             </tr>
             <%  if(request.getAttribute("nosEvents")!=null){
                     List<Event> nosEvents = (List<Event>) request.getAttribute("nosEvents");
@@ -41,6 +43,7 @@
             %>
                     <tr>
                         <td><%= nosEvents.get(i).toString() %> </td>
+                        <td><%= nosEvents.get(i).getDate() %> </td>
                     </tr>
                     <% }}
                 }%>

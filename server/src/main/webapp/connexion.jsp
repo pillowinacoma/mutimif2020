@@ -11,14 +11,17 @@
     <form id="connexion" method="post" action="Init">
         <h2>Connexion à l'interface administrateur</h2>
             <fieldset>
+                <legend></legend>
                     <input placeholder="Login" type="text" name="login" autofocus>
             </fieldset>
 
             <fieldset>
+                <legend></legend>
                     <input placeholder="mot de passe" type="text" name="nom">
             </fieldset>
 
             <fieldset>
+                <legend></legend>
                     <button 
                         type="submit" name="submit" id="connexionSubmit" data-submit="...Connexion">
                         Se connecter

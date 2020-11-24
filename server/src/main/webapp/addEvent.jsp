@@ -20,22 +20,27 @@
                 <h2>Add an event with associated hashtags</h2>
 
                 <fieldset>
-                        <input placeholder="Name" type="text" name="nameEvent" autofocus>
+                    <legend></legend>
+                    <input placeholder="Name" type="text" name="nameEvent" autofocus>
                 </fieldset>
 
                 <fieldset>
+                    <legend></legend>
                     <input placeholder="Date" type="date" name="dateEvent">
                 </fieldset>
 
                 <fieldset>
-                        <input placeholder="Description" type="textarea" name="descriptionEvent" autofocus>
+                    <legend></legend>
+                    <input placeholder="Description" type="textarea" name="descriptionEvent" autofocus>
                 </fieldset>
 
                 <fieldset>
+                    <legend>Séparer les hashtags avec des ;</legend>
                     <input placeholder="Hashtags" type="textarea" name="hashtags" autofocus>
                 </fieldset>
 
                 <fieldset>
+                    <legend></legend>
                     <input
                         type="submit" name="action" value="+" id="submitEvent" >
                 </fieldset>

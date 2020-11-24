@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import fr.univlyon1.m1if.m1if10.dao.EventDAO;
 import fr.univlyon1.m1if.m1if10.dao.HashtagDAO;
@@ -26,8 +25,9 @@ import javax.servlet.ServletConfig;
 @WebServlet(name = "interfaceController", urlPatterns = "/admin")
 public class InterfaceController extends HttpServlet {
     private EntityManager manager;
-    private EventDAO eventDao;
-    private HashtagDAO hashtagDao;
+    private static EventDAO eventDao;
+    private static HashtagDAO hashtagDao;
+    private List<Event> listEvent;
 
     @Override
     public void init(final ServletConfig config) throws ServletException {
@@ -40,7 +40,6 @@ public class InterfaceController extends HttpServlet {
     protected void doPost(final HttpServletRequest request, final HttpServletResponse response)
     throws ServletException, IOException {
         try {
-            HttpSession session = request.getSession();
             if (request.getParameter("action") == null) {
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Action non spécifiée.");
                 return;
@@ -71,7 +70,6 @@ public class InterfaceController extends HttpServlet {
                     }
                 }
                 manager.getTransaction().commit();
-                manager.close();
                 processRequest(request, response);
             }
         } catch (ParseException ex) {
@@ -89,7 +87,7 @@ public class InterfaceController extends HttpServlet {
     @Override
     public void doGet(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
-        List<Event> listEvent = eventDao.getAllEvent();
+        this.listEvent = eventDao.getAllEvent();
         request.setAttribute("nosEvents", listEvent);
         processRequest(request, response);
     }
