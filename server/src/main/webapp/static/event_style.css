@@ -1,0 +1,73 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24 nov. 2020, 12:20:58
+    Author     : melisyatutoglu
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+}
+
+body {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 80%;
+  line-height: 30px;
+  color: #FFF;
+  background: #778899;
+}
+
+.container2 {
+  max-width: 600px;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  color: #FFF;
+}
+
+.options {
+    margin-top: 5%;
+    color: #FFF;
+    font-size: 100%;
+}
+.options h3 {
+    text-decoration: underline;
+}
+.button { 
+  cursor: pointer;
+  border: none;
+  background-color: #777;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 90%;
+  margin-top: 2%;
+  
+}
+
+.button:hover
+{
+  background: #aaa;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+td input[type="submit"] {
+    margin-left: 10%;
+}
+label {
+    margin-right: 2%;
+    font-size: 120%;
+}

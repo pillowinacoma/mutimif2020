@@ -1,6 +1,7 @@
 package fr.univlyon1.m1if.m1if10.dao;
 
 import fr.univlyon1.m1if.m1if10.model.Hashtag;
+import java.util.List;
 
 
 import javax.persistence.EntityManager;
@@ -49,5 +50,8 @@ public class HashtagDAO {
             manager.persist(hashtag);
         }
         return hashtag;
+    }
+    public List<Hashtag> getAllHashtags() {
+        return manager.createQuery("select h from Hashtag h", Hashtag.class).getResultList();
     }
 }

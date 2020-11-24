@@ -44,33 +44,52 @@ public class InterfaceController extends HttpServlet {
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Action non spécifiée.");
                 return;
             }
-            if (request.getParameter("action").equals("+")) {
-                manager.getTransaction().begin();
-                //récupération des éléments du formulaire:
-                String nameEvent = request.getParameter("nameEvent");
-                //Formater la date
-                String dateEvent = request.getParameter("dateEvent");
-                SimpleDateFormat dateform = new SimpleDateFormat("yyyy-MM-dd");
-                Date date = dateform.parse(dateEvent);
-                java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-                String descriptionEvent = request.getParameter("descriptionEvent");
-                //création des mes modèles DAO
-                Event event = this.eventDao.getOrCreate(nameEvent,
-                        sqlDate, descriptionEvent);
-              //récupération des hashtags dans la table tabString
-                if (request.getParameter("hashtags") != null) {
-                    String sHashtags = request.getParameter("hashtags");
-                    String[] tabString = sHashtags.split(";");
-                    ArrayList<ConnectInsta> tests = new ArrayList<>();
-                    for (String tabString1 : tabString) {
-                        Hashtag hash = hashtagDao.getOrCreate(tabString1);
-                        hash.addEvent(event);
-                        tests.add(new ConnectInsta(tabString1));
-                        tests.get(tests.size() - 1).start();
+            manager.getTransaction().begin();
+            switch (request.getParameter("action")) {
+                case "+":
+                    //récupération des éléments du formulaire:
+                    String nameEvent = request.getParameter("nameEvent");
+                    //Formater la date
+                    String dateEvent = request.getParameter("dateEvent");
+                    SimpleDateFormat dateform = new SimpleDateFormat("yyyy-MM-dd");
+                    Date date = dateform.parse(dateEvent);
+                    java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+                    String descriptionEvent = request.getParameter("descriptionEvent");
+                    //création des mes modèles DAO
+                    Event event = this.eventDao.getOrCreate(nameEvent,
+                            sqlDate, descriptionEvent);
+                  //récupération des hashtags dans la table tabString
+                    if (request.getParameter("hashtags") != null) {
+                        String sHashtags = request.getParameter("hashtags");
+                        String[] tabString = sHashtags.split(";");
+                        ArrayList<ConnectInsta> tests = new ArrayList<>();
+                        for (String tabString1 : tabString) {
+                            Hashtag hash = hashtagDao.getOrCreate(tabString1);
+                            hash.addEvent(event);
+                            tests.add(new ConnectInsta(tabString1));
+                            tests.get(tests.size() - 1).start();
+                        }
                     }
-                }
-                manager.getTransaction().commit();
+                    break;
+                case "Delete":
+                    if (request.getAttribute("deleteEvent") != null) {
+                        Event e0 = (Event) request.getAttribute("deleteEvent");
+                        for (Hashtag h : hashtagDao.getAllHashtags()) {
+                            for (Event e : h.getEvents()) {
+                                if (e0.equals(e)) {
+                                    System.out.println("YOYO"
+                                            + request.getAttribute("deleteEvent"));
+                                    h.removeEvent(e);
+                                }
+                            }
+                        }
+                        eventDao.deleteEvent(e0);
+                    }
+                    break;
+                default:
+                    doGet(request, response);
             }
+            manager.getTransaction().commit();
         } catch (ParseException ex) {
             Logger.getLogger(InterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -89,8 +108,16 @@ public class InterfaceController extends HttpServlet {
         manager.getTransaction().begin();
         this.listEvent = eventDao.getAllEvent();
         request.setAttribute("nosEvents", listEvent);
-        for (int i = 0; i < listEvent.size(); i++) {
-            System.out.println("---------EVENT------------- :" + listEvent.get(i).toString());
+        if (request.getParameter("contenu") != null) {
+            if (request.getParameter("contenu").equals("event")) {
+                for (Event e : listEvent) {
+                    if (e.getName().equals(request.getParameter("name"))) {
+                        request.setAttribute("event", e);
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("event.jsp");
+                        dispatcher.forward(request, response);
+                    }
+                }
+            }
         }
         manager.getTransaction().commit();
         processRequest(request, response);

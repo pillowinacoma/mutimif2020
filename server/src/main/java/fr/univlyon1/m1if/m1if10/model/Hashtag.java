@@ -75,6 +75,17 @@ public class Hashtag {
     public void addEvent(final Event e) {
         events.add(e);
     }
+    /**
+     * add Event.
+     * @param e
+     */
+    public void removeEvent(final Event e) {
+        for (int i = 0; i < this.events.size(); i++) {
+            if (e.equals(events.get(i))) {
+                events.remove(i);
+            }
+        }
+    }
 
     public List<Event> getEvents() {
         return events;

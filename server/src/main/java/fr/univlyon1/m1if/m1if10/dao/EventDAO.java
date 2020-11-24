@@ -59,4 +59,12 @@ public class EventDAO {
     public List<Event> getAllEvent() {
         return manager.createQuery("select e from Event e", Event.class).getResultList();
     }
+    /**
+     *
+     * @param e
+     */
+    public void deleteEvent(final Event e) {
+        System.out.println("PAUL");
+        manager.remove(e);
+    }
 }

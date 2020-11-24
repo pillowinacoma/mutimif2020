@@ -42,7 +42,7 @@
                         if(nosEvents.get(i).getDate().compareTo(sqlCurrentDate) > -1){     
             %>
                     <tr>
-                        <td><%= nosEvents.get(i).toString() %> </td>
+                        <td><a href="admin?contenu=event&name=<%= nosEvents.get(i).getName()%>"> <%=nosEvents.get(i).toString()%> </td>
                         <td><%= nosEvents.get(i).getDate() %> </td>
                     </tr>
                     <% }}
