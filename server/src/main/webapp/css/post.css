@@ -1,0 +1,13 @@
+.post{
+
+}
+.post img{
+    width: min-content;
+    max-height: 70%;
+}
+.username{
+    font-size: smaller;
+}
+.caption{
+    font-size: large;
+}
