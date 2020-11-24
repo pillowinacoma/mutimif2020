@@ -5,7 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.ManyToMany;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -27,13 +28,13 @@ public class Hashtag {
     @JoinTable(name = "HashtagEvent",
                 joinColumns = @JoinColumn(name = "idhashtag"),
                 inverseJoinColumns = @JoinColumn(name = "idevent"))
-    private Collection<Event> events;
+    private List<Event> events = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(name = "PostHashtag",
                 joinColumns = @JoinColumn(name = "idhashtag"),
                 inverseJoinColumns = @JoinColumn(name = "idpost"))
-    private Collection<Post> posts;
+    private List<Post> posts = new ArrayList<>();
 
     /**
      * Default Constructor.
@@ -75,17 +76,16 @@ public class Hashtag {
         events.add(e);
     }
 
-    public Collection<Event> getEvents() {
+    public List<Event> getEvents() {
         return events;
     }
 
-    public Collection<Post> getPosts() {
+    public List<Post> getPosts() {
         return posts;
     }
 
     @Override
     public String toString() {
-        String returnString = name;
-        return returnString;
+        return name;
     }
 }

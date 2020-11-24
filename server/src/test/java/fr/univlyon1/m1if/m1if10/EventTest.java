@@ -14,7 +14,7 @@ class EventTest {
     @Test
     void EventConstructeurGetTest() {
         //Given
-        Date d = new Date(2020, 23, 11);
+        Date d = new Date(2020, 11, 23);
         e = new Event(1, d, "Nom", "Description");
         
         //Then

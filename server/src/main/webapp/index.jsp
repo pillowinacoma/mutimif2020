@@ -57,20 +57,20 @@
 							<p><c:out value="${event.description}"/></p>
 						</section>
 					</section>
-					<c:forEach items="${hashtagList}" var="hashtag">
+					<c:forEach items="${event.hashtags}" var="hashtag">
 						<section>
 							<section>
-								<h6><a href="https://www.instagram.com/explore/tags/<c:out value="${hashtag.name}"/>/"><c:out value="${hashtag.name}"/></a></h6>
+								<h6><a href="https://www.instagram.com/explore/tags/<c:out value="${hashtag.name}"/>/">#<c:out value="${hashtag.name}"/></a></h6>
 								<div class="r-stack">
-								<c:forEach items="${postList}" var="posty">
+								<c:forEach items="${hashtag.posts}" var="posty" varStatus="status">
 									<c:choose>
-										<c:when test="${posty.id == 0}">
+										<c:when test="${status.index == 0}">
 									<div class="fragment fade-out" data-fragment-index="0">
 										</c:when>
-										<c:when test="${posty.id == 1}">
+										<c:when test="${status.index == 1}">
 									<div class="fragment current-visible" data-fragment-index="0">
 										</c:when>
-										<c:when test="${posty.id == fn:length(postList) - 1}">
+										<c:when test="${status.index == fn:length(hashtag.posts) - 1}">
 									<div class="fragment ">
 										</c:when>
 										<c:otherwise>
@@ -103,7 +103,7 @@
 				center: true,
 				hash: true,
 				autoSlideStoppable: false,
-				autoSlide: 1000,
+				autoSlide: 2000,
 				loop: true,
 			});
 		</script>

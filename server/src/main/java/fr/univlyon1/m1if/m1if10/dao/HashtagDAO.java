@@ -28,11 +28,9 @@ public class HashtagDAO {
      */
     public Hashtag getHashtagByName(final String name) {
         try {
-            Hashtag hashtag =
-                    (Hashtag) this.manager.createQuery("SELECT h FROM Hashtag h WHERE h.name=:name")
+            return (Hashtag) this.manager.createQuery("SELECT h FROM Hashtag h WHERE h.name=:name")
             .setParameter("name", name)
             .getSingleResult();
-            return hashtag;
         } catch (NoResultException e) {
             return null;
         }

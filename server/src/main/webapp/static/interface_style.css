@@ -37,6 +37,7 @@ body {
   margin: auto;
   position: relative;
 }
+.add input[type="date"],
 .add input[type="datetime-local"],
 .add input[type="textarea"],
 .add input[type="text"],
@@ -69,7 +70,7 @@ fieldset {
   padding: 0;
   width: 100%;
 }
-
+.add input[type="date"],
 .add input[type="datetime-local"],
 .add input[type="textarea"],
 .add input[type="text"]{
@@ -79,7 +80,7 @@ fieldset {
   margin: 0 0 5px;
   padding: 10px;
 }
-
+.add input[type="date"]:hover,
 .add input[type="datetime-local"]:hover,
 .add input[type="textarea"]:hover,
 .add input[type="text"]:hover{
@@ -89,7 +90,7 @@ fieldset {
   border: 1px solid #aaa;
 }
 
-.add button[type="submit"] {
+.add input[type="submit"] {
   cursor: pointer;
   width: 100%;
   border: none;
@@ -100,14 +101,14 @@ fieldset {
   font-size: 15px;
 }
 
-.add button[type="submit"]:hover {
+.add input[type="submit"]:hover {
   background: #708090;
   -webkit-transition: background 0.3s ease-in-out;
   -moz-transition: background 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
 }
 
-.add button[type="submit"]:active {
+.add input[type="submit"]:active {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
@@ -156,4 +157,10 @@ fieldset {
     padding: 0 1em;
     height: 44px;
     overflow: hidden;
+}
+
+td {
+    color: #FFF;
+    font-size: 16px;
+    
 }
