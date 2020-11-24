@@ -60,7 +60,7 @@
 					<c:forEach items="${event.hashtags}" var="hashtag">
 						<section>
 							<section>
-								<h6><a href="https://www.instagram.com/explore/tags/<c:out value="${hashtag.name}"/>/">#<c:out value="${hashtag.name}"/></a></h6>
+								<a href="https://www.instagram.com/explore/tags/<c:out value="${hashtag.name}"/>/">#<c:out value="${hashtag.name}"/></a>
 								<div class="r-stack">
 								<c:forEach items="${hashtag.posts}" var="posty" varStatus="status">
 									<c:choose>
@@ -76,11 +76,11 @@
 										<c:otherwise>
 									<div class="fragment current-visible">
 										</c:otherwise>
-									</c:choose>								
+									</c:choose>
 										<div class="post">
-											<p class="username">@<c:out value="${posty.name}"/></p>
-											<img src="<c:out value="${posty.url}"/>">
+											<p class="username">@<c:out value="${posty.name}"/> : </p>
 											<p class="caption"><c:out value="${posty.description}"/></p>
+											<img src="<c:out value="${posty.url}"/>">
 										</div>							
 									</div>
 								</c:forEach>
@@ -102,8 +102,8 @@
 				progress: true,
 				center: true,
 				hash: true,
-				autoSlideStoppable: false,
-				autoSlide: 2000,
+				//autoSlideStoppable: false,
+				//autoSlide: 2000,
 				loop: true,
 			});
 		</script>
