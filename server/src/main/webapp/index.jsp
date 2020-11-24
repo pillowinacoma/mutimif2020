@@ -102,8 +102,8 @@
 				progress: true,
 				center: true,
 				hash: true,
-				//autoSlideStoppable: false,
-				//autoSlide: 2000,
+				autoSlideStoppable: false,
+				autoSlide: 2000,
 				loop: true,
 			});
 		</script>

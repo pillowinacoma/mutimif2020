@@ -55,12 +55,20 @@ public class FrontController extends HttpServlet {
      */
     private static int estimateSeconds(final List<Event> eventList) {
         int estimatedSecondes = 0;
-        for (Event e : eventList) {
-            estimatedSecondes++;
-            for (Hashtag hash : e.getHashtags()) {
+        if (eventList != null) {
+            for (Event e : eventList) {
                 estimatedSecondes++;
-                for (Post post : hash.getPosts()) {
-                    estimatedSecondes++;
+                List<Hashtag> hashList = e.getHashtags();
+                if (hashList != null) {
+                    for (Hashtag hash : hashList) {
+                        estimatedSecondes++;
+                        List<Post> postList = hash.getPosts();
+                        if (postList != null) {
+                            for (Post post : hash.getPosts()) {
+                                estimatedSecondes++;
+                            }
+                        }
+                    }
                 }
             }
         }
