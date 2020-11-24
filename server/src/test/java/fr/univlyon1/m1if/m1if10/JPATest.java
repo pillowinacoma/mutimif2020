@@ -11,7 +11,7 @@ class JPATest {
 
 	@Test
 	void ConnexionBDTest() {
-		EntityManager em = Persistence.createEntityManagerFactory("public").createEntityManager();
+		EntityManager em = Persistence.createEntityManagerFactory("publictest").createEntityManager();
 		em.close();
 	}
 
