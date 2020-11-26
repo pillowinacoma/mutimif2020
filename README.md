@@ -34,11 +34,14 @@ Pour **compiler le projet**, se placer dans le répertoire racine et taper la co
 mvn compile
 ```
 
+**Avant de déployer** sur tomcat nous allons devoir mettre en place un serveur postgresql en local, disponible [sur le wiki](../wikis/tutos/PostgreSQL)
+
 Le déploiement sur un serveur `tomcat` local est possible, sous résevre qu'un tel serveur soit installé (des instructions sont disponibles [sur le wiki](../wikis/tutos/tomcatLocal)):
 
 ```shell
 mvn tomcat7:redeploy
 ```
+
 
 ## Machine virtuelle de démonstration
 
