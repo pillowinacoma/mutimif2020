@@ -45,7 +45,7 @@ mvn tomcat7:redeploy
 
 ## Machine virtuelle de démonstration
 
-Le projet est accessible sur une machine de démonstration à l'adresse http://192.168.74.218:8080/v1/
+Le projet est accessible sur une machine de démonstration à l'adresse http://192.168.74.218:8080/v1/user
 
 ## Addendum 1 - Dépendances pour le `pom.xml`
 
