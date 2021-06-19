@@ -4,12 +4,12 @@ Réalisation  d'un système d'affichage d'événements à partir d'informations 
 
 ## Auteurs
 
-- Jonathan RAYBAUD--SERDA, N°11507907
-- Abdelaziz SBAAI, N°11807434
-- Djaloud ALI MROIVILI, N°11610152
-- Vincent PHAM, N°11610072
-- Victor BOGHOSSIAN, N°11712615
-- Melisya TUTOGLU, N°11702053
+- Jonathan RAYBAUD--SERDA
+- Abdelaziz SBAAI
+- Djaloud ALI MROIVILI
+- Vincent PHAM
+- Victor BOGHOSSIAN
+- Melisya TUTOGLU
 
 ## Construction du projet
 
